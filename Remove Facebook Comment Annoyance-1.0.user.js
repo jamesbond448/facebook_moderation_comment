@@ -7,6 +7,7 @@
 // @match        https://www.facebook.com/plugins/*
 // @icon         https://www.facebook.com/images/fb_icon_325x325.png
 // @grant        none
+// @license MIT
 // ==/UserScript==
 
 
