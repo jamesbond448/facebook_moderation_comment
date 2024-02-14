@@ -8,6 +8,8 @@
 // @icon         https://www.facebook.com/images/fb_icon_325x325.png
 // @grant        none
 // @license MIT
+// @downloadURL https://update.greasyfork.org/scripts/487197/Remove%20Facebook%20Comment%20Annoyance.user.js
+// @updateURL https://update.greasyfork.org/scripts/487197/Remove%20Facebook%20Comment%20Annoyance.meta.js
 // ==/UserScript==
 
 
