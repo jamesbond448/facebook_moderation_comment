@@ -19,7 +19,7 @@
     'use strict';
 
     //List of keyword to trigger scam comment
-    const listofkeyword = ["Sauce ::", "Sauce(1)" ,"I get paid over", "Start now making every", "𝐇𝐨𝐰 𝐓𝐨 𝐌𝐚𝐤𝐞 𝐄𝐱𝐭𝐫𝐚 𝐈𝐧𝐜𝐨𝐦𝐞", "banger Alert", "elite banger", "banger out", "New Banger", "celokit", "New manhwa", "Anybody can earn", "I g­e­t p­a­i­d o­v­e­r", "https://www.nunipu", "𝐍𝐄𝐄𝐃 𝐏𝐄𝐎𝐏𝐋𝐄 𝐅𝐎𝐑 𝐏𝐀𝐑𝐓 𝐓𝐈𝐌𝐄", "https://www.digitalbookhaven.com", "https://odysee.com"];
+    const listofkeyword = ["Sauce ::", "Sauce::", "Sauce(1)","I get paid over", "Start now making every", "𝐇𝐨𝐰 𝐓𝐨 𝐌𝐚𝐤𝐞 𝐄𝐱𝐭𝐫𝐚 𝐈𝐧𝐜𝐨𝐦𝐞", "banger Alert", "elite banger", "banger out", "New Banger", "celokit", "New manhwa", "Anybody can earn", "I g­e­t p­a­i­d o­v­e­r", "https://www.nunipu", "𝐍𝐄𝐄𝐃 𝐏𝐄𝐎𝐏𝐋𝐄 𝐅𝐎𝐑 𝐏𝐀𝐑𝐓 𝐓𝐈𝐌𝐄", "https://www.digitalbookhaven.com", "https://odysee.com"];
     //todo if performance ever problem just make all keyword already lowercase and disable check in if condition
 
     //Not make the search of previous comment
