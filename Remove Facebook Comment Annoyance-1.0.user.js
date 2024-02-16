@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Remove Facebook Comment Annoyance
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.01
 // @description  Remove comment with specific keyword
 // @author       PA
+// @homepage     https://github.com/jamesbond448/facebook_moderation_comment
 // @match        https://www.facebook.com/plugins/*
 // @icon         https://www.facebook.com/images/fb_icon_325x325.png
 // @grant        none
@@ -19,7 +20,7 @@
     'use strict';
 
     //List of keyword to trigger scam comment
-    const listofkeyword = ["Sauce ::", "Sauce::", "Sauce(1)","I get paid over", "Start now making every", "𝐇𝐨𝐰 𝐓𝐨 𝐌𝐚𝐤𝐞 𝐄𝐱𝐭𝐫𝐚 𝐈𝐧𝐜𝐨𝐦𝐞", "banger Alert", "elite banger", "banger out", "New Banger", "celokit", "New manhwa", "Anybody can earn", "I g­e­t p­a­i­d o­v­e­r", "https://www.nunipu", "𝐍𝐄𝐄𝐃 𝐏𝐄𝐎𝐏𝐋𝐄 𝐅𝐎𝐑 𝐏𝐀𝐑𝐓 𝐓𝐈𝐌𝐄", "https://www.digitalbookhaven.com", "https://odysee.com", "Getmoney3"];
+    const listofkeyword = ["Sauce ::", "Sauce::", "Sauce(1)","I get paid over", "Start now making every", "𝐇𝐨𝐰 𝐓𝐨 𝐌𝐚𝐤𝐞 𝐄𝐱𝐭𝐫𝐚 𝐈𝐧𝐜𝐨𝐦𝐞", "banger Alert", "elite banger", "banger out", "New Banger", "celokit", "New manhwa", "Anybody can earn", "I g­e­t p­a­i­d o­v­e­r", "https://www.nunipu", "𝐍𝐄𝐄𝐃 𝐏𝐄𝐎𝐏𝐋𝐄 𝐅𝐎𝐑 𝐏𝐀𝐑𝐓 𝐓𝐈𝐌𝐄", "https://www.digitalbookhaven.com", "https://odysee.com", "Getmoney3", "full sexy video"];
     //todo if performance ever problem just make all keyword already lowercase and disable check in if condition
 
     //Not make the search of previous comment
