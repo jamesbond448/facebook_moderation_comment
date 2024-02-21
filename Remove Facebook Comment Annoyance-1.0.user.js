@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Facebook Comment Annoyance
 // @namespace    http://tampermonkey.net/
-// @version      1.04
+// @version      1.05
 // @description  Remove comment with specific keyword
 // @author       PA
 // @homepage     https://github.com/jamesbond448/facebook_moderation_comment
@@ -20,16 +20,30 @@
     'use strict';
 
     //List of keyword to trigger scam comment
-    const listofkeyword = ["Sauce-", "Sauce ::", "Sauce::", "Sauce(1)","I get paid over", "Start now making every", "𝐇𝐨𝐰 𝐓𝐨 𝐌𝐚𝐤𝐞 𝐄𝐱𝐭𝐫𝐚 𝐈𝐧𝐜𝐨𝐦𝐞", "banger Alert", "elite banger", "banger out", "New Banger", "celokit", "New manhwa", "Anybody can earn", "I g­e­t p­a­i­d o­v­e­r", "https://www.nunipu", "𝐍𝐄𝐄𝐃 𝐏𝐄𝐎𝐏𝐋𝐄 𝐅𝐎𝐑 𝐏𝐀𝐑𝐓 𝐓𝐈𝐌𝐄", "https://www.digitalbookhaven.com", "https://odysee.com", "Getmoney3", "full sexy video", "job online from home", "M­y­ l­a­s­t­ p­a­y­ c­h­e­c­k­", "OnlyFans Leaks", "Try this one you", "mangatube", "sexy hot", "Link hentai", "Enjoy reading this", "New Chapter Release NOW", "make some bucks", "You may enjoy reading", "Get Free Money", "New manga", "G­­o­o­gle­ is paying", "soultech", "I get over", "𝐎𝐧𝐥𝐢𝐧𝐞 𝗪𝗢𝗥𝗞 𝐀𝐯𝐚𝐢𝐥𝐚𝐛𝐥𝐞"];
+    const listofkeyword = ["Sauce-", "Sauce ::", "Sauce::", "Sauce(1)","I get paid over", "Start now making every", "𝐇𝐨𝐰 𝐓𝐨 𝐌𝐚𝐤𝐞 𝐄𝐱𝐭𝐫𝐚 𝐈𝐧𝐜𝐨𝐦𝐞", "banger Alert", "elite banger", "banger out", "New Banger", "celokit", "New manhwa", "Anybody can earn", "I g­e­t p­a­i­d o­v­e­r", "https://www.nunipu", "𝐍𝐄𝐄𝐃 𝐏𝐄𝐎𝐏𝐋𝐄 𝐅𝐎𝐑 𝐏𝐀𝐑𝐓 𝐓𝐈𝐌𝐄", "https://www.digitalbookhaven.com", "https://odysee.com", "Getmoney3", "full sexy video", "job online from home", "M­y­ l­a­s­t­ p­a­y­ c­h­e­c­k­", "OnlyFans Leaks", "Try this one you", "mangatube", "sexy hot", "Link hentai", "Enjoy reading this", "New Chapter Release NOW", "make some bucks", "You may enjoy reading", "Get Free Money", "New manga", "G­­o­o­gle­ is paying", "soultech", "I get over", "𝐎𝐧𝐥𝐢𝐧𝐞 𝗪𝗢𝗥𝗞 𝐀𝐯𝐚𝐢𝐥𝐚𝐛𝐥𝐞", "mangack", "mangace"];
     //todo if performance ever problem just make all keyword already lowercase and disable check in if condition
 
     //Not make the search of previous comment
-    var lastindex = 0;
+    var lastindexComment = 0;
+    var lastindexReply = 0;
 
     function removescam(){
         setTimeout(function() {
-            var element = document.getElementsByClassName("_3-8y _5nz1 clearfix");//First comment div which does include reply
-            for (let i = lastindex; i < element.length; i++) {
+            var element = document.getElementsByClassName("_3-8y clearfix");//First comment in the reply of comment
+            for (let i = lastindexReply; i < element.length; i++) {
+                if(element[i].className == '_3-8y clearfix') {
+                    for (let j = 0; j < listofkeyword.length; j++) {
+                        if(element[i].innerHTML.toLowerCase().includes(listofkeyword[j].toLowerCase())){
+                            element[i].remove();
+                            i--;//remove action will decrease the list
+                            break;//stop loop
+                        }
+                    }
+                    lastindexReply = i;
+                }
+            }
+            element = document.getElementsByClassName("_3-8y _5nz1 clearfix");//First comment div which does not include reply
+            for (let i = lastindexComment; i < element.length; i++) {
                 for (let j = 0; j < listofkeyword.length; j++) {
                     if(element[i].innerHTML.toLowerCase().includes(listofkeyword[j].toLowerCase())){
                         element[i].remove();
@@ -37,7 +51,7 @@
                         break;//stop loop
                     }
                 }
-                lastindex = i;
+                lastindexComment = i;
             }
             var button = document.getElementsByClassName("_1gl3 _4jy0 _4jy3 _517h _51sy _42ft");//This is the button load more commment
             button[0].addEventListener("click", removescam);
