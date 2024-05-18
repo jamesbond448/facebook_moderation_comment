@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Facebook Comment Annoyance
 // @namespace    http://tampermonkey.net/
-// @version      1.23
+// @version      1.24
 // @description  Remove comment with specific keyword
 // @author       PA
 // @homepage     https://github.com/jamesbond448/facebook_moderation_comment
